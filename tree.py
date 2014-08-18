@@ -84,7 +84,7 @@ class commandParser():
             except:
                 return "\r\ncat: "+args[0]+" :No such File or Direcotry!"
         
-        return "\r\ncat: "+args[0] + "Is a directory"
+        return "\r\ncat: "+args[0] + ": Is a directory"
         
     def cd(self,parts):
         opts, args = getopt.getopt(parts[1:], ":LP", [])
@@ -106,7 +106,7 @@ class commandParser():
             #print_debug(self.mysys.pwd())
             return " "
         except:
-            return "cd: "+args[0]+": File or Directory not found!"
+            return "\r\ncd: "+args[0]+": File or Directory not found!"
    
     def ls(self,parts):
         opts, args = getopt.getopt(parts[1:], "aAbBcCdDfFgGhHiIklLmnNopqQrRsStTuUvwxX1Z:", 
@@ -200,10 +200,8 @@ class commandParser():
                 return ' '
             #print repr(parts) , parts[0]
             command_map={
-                         #"exit":self.exit,
                          "cd":self.cd,
                          "ls":self.ls,
-                         #"ll":self.ls,
                          "pwd":self.getpwd,
                          "wget":self.wget,
                          "uname":self.uname,
